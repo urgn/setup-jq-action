@@ -15,6 +15,7 @@ runs:
       shell: bash
       run: |
         wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O ${HOME}/.local/bin/jq
-        chmod +x /usr/bin/jq
+        chmod +x ${HOME}/.local/bin
         echo "${HOME}/.local/bin" >> $GITHUB_PATH
+        ls -la ${HOME}/.local/bin
         echo "::set-output name=jq-binary::${HOME}/.local/bin/jq"
