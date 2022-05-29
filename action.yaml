@@ -1,23 +1,19 @@
-name: 'Setup yq environment'
-description: 'GitHub Action to setup the `jq` and `yq` command for yaml and json parsing'
-author: 'shiipou'
+name: 'Setup jq environment'
+description: 'GitHub Action to setup the `jq` command for json parsing'
+author: 'urgn'
 
 outputs:
-  yq-binary:
-    description: 'The pinary path for the yq command'
-    value: ${{ steps.install-yq.outputs.yq-binary }}
+  jq-binary:
+    description: 'The pinary path for the jq command'
+    value: ${{ steps.install-jq.outputs.jq-binary }}
     
 runs:
   using: "composite"
   steps:
-    - name: Install yq
-      id: install-yq
+    - name: Install jq
+      id: install-jq
       shell: bash
-      env:
-        PARAMS: '${{ inputs.params }}'
-        BINARY: 'yq_linux_amd64'
-        VERSION: 'v4.17.2'
       run: |
-        curl -sSLo /usr/bin/yq https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}
-        chmod +x /usr/bin/yq
-        echo "::set-output name=yq-binary::/usr/bin/yq"
+        curl -sSLo /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+        chmod +x /usr/bin/jq
+        echo "::set-output name=jq-binary::/usr/bin/jq"
