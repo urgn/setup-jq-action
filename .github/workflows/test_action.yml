@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Try yq installation
-        id: setup-yq
+      - name: Try jq installation
+        id: setup-jq
         uses: ./
-      - name: test if yq is present
-        run: yq --version
+      - name: test if jq is present
+        run: jq --version
