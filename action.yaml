@@ -14,8 +14,9 @@ runs:
       id: install-jq
       shell: bash
       run: |
+        mkdir -p ${HOME}/.local/bin
         wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O ${HOME}/.local/bin/jq
-        chmod +x ${HOME}/.local/bin
+        chmod +x ${HOME}/.local/bin/jq
         echo "${HOME}/.local/bin" >> $GITHUB_PATH
         ls -la ${HOME}/.local/bin
         echo "::set-output name=jq-binary::${HOME}/.local/bin/jq"
