@@ -1,6 +1,5 @@
-# setup-yq-action
-GitHub Action to setup the `jq` and `yq` command for yaml and json parsing
-
+# setup-jq-action
+GitHub Action to setup the `jq` command for json parsing
 
 Example of use :
 ```yaml
@@ -10,15 +9,15 @@ on: [ "push" ]
 
 jobs:
   parse_yaml:
-    name: Parse Yaml
+    name: Parse JSON
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install yq
-        id: setup-yq
-        uses: shiipou/setup-yq-action@v2.0.1
+      - name: Install jq
+        id: setup-jq
+        uses: urgn/setup-jq-action@v3.0.2
       - name: get version
         run: |
-          VERSION=$(${{ steps.setup-yq.outputs.yq-binary }} '.dependency.my_component.git.ref' pubspec.yaml)
+          VERSION=$(${{ steps.setup-jq.outputs.jq-binary }} '.dependency.my_component.git.ref' pubspec.json)
 ```

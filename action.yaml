@@ -4,7 +4,7 @@ author: 'urgn'
 
 outputs:
   jq-binary:
-    description: 'The pinary path for the jq command'
+    description: 'The binary path for the jq command'
     value: ${{ steps.install-jq.outputs.jq-binary }}
     
 runs:
