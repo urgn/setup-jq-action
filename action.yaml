@@ -4,7 +4,7 @@ author: 'urgn'
 
 outputs:
   jq-binary:
-    description: 'The pinary path for the jq command'
+    description: 'The binary path for the jq command'
     value: ${{ steps.install-jq.outputs.jq-binary }}
     
 runs:
@@ -15,6 +15,6 @@ runs:
       shell: bash
       run: |
         mkdir -p ${HOME}/.local/bin
-        wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O ${HOME}/.local/bin/jq
+        wget https://github.com/stedolan/jq/releases/download/jq-1.7.1/jq-linux64 -O ${HOME}/.local/bin/jq
         chmod +x ${HOME}/.local/bin/jq
-        echo "::set-output name=jq-binary::${HOME}/.local/bin/jq"
+        echo "jq-binary=${HOME}/.local/bin/jq" >> $GITHUB_OUTPUT
