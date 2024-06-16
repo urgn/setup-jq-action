@@ -17,4 +17,4 @@ runs:
         mkdir -p ${HOME}/.local/bin
         wget https://github.com/stedolan/jq/releases/download/jq-1.7.1/jq-linux64 -O ${HOME}/.local/bin/jq
         chmod +x ${HOME}/.local/bin/jq
-        echo "::set-output name=jq-binary::${HOME}/.local/bin/jq"
+        echo "jq-binary=${HOME}/.local/bin/jq" >> $GITHUB_OUTPUT
